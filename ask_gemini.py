@@ -50,6 +50,17 @@ def get_files_from_data_folder():
         raise Exception(f"Failed to fetch file list: {response.status_code}")
 
 # 각 파일에서 user_id 추출하는 함수
+def extract_user_id_from_file(file_path):
+    try:
+        file_content = get_file_content(file_path)  # 파일 내용 가져오기
+        data = json.loads(file_content)  # JSON 데이터로 파싱
+        user_id = data.get("user_id")  # user_id 추출
+        return user_id
+    except Exception as e:
+        print(f"파일 {file_path}에서 user_id를 추출하는 중 에러 발생: {e}")
+        return None
+
+# 여러 파일에서 user_id를 추출하는 함수
 def extract_user_id_from_files():
     file_list = get_files_from_data_folder()
     user_ids = []
