@@ -61,7 +61,7 @@ if __name__ == "__main__":
         # 결과를 사용자별 파일로 저장
         with open(result_file_name, "w", encoding="utf-8") as f:
             f.write(answer)
-
+        print(answer)
         print(f"결과가 '{result_file_name}' 파일에 저장되었습니다.")
 
     except Exception as e:
