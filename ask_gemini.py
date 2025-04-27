@@ -6,6 +6,7 @@ import base64
 # 환경 변수에서 API 키 및 GitHub 토큰을 가져옵니다.
 API_KEY = os.getenv("API_KEY")  # Google Gemini API 키
 GITHUB_TOKEN = os.getenv("GIT_TOKEN")  # GitHub Personal Access Token
+USER_ID = os.getenv("USER_ID", "anonymous")  # 앱에서 넘겨준 UUID 또는 기본값 'anonymous'
 REPO_OWNER = "JUNBUNG-droid"
 REPO_NAME = "ask_gemini"
 FILE_PATH = "data/diet_summary.json"
@@ -54,11 +55,14 @@ if __name__ == "__main__":
         # Gemini API 호출
         answer = call_gemini(prompt)
 
-        # 결과를 파일로 저장
-        with open("result.txt", "w", encoding="utf-8") as f:
+        # USER_ID를 기반으로 파일 이름 생성
+        result_file_name = f"{USER_ID}.txt"
+
+        # 결과를 사용자별 파일로 저장
+        with open(result_file_name, "w", encoding="utf-8") as f:
             f.write(answer)
 
-        print("결과가 'result.txt' 파일에 저장되었습니다.")
+        print(f"결과가 '{result_file_name}' 파일에 저장되었습니다.")
 
     except Exception as e:
         print(f"에러 발생: {e}")
