@@ -27,3 +27,11 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
           python ask_gemini.py
+
+      - name: Commit result.txt
+        run: |
+          git config --global user.email rimblee2000@gmail.com
+          git config --global user.name "JUNBUNG-droid"
+          git add result.txt
+          git commit -m "Update result.txt"
+          git push
