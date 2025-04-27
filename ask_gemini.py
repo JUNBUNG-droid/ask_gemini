@@ -55,8 +55,7 @@ if __name__ == "__main__":
         answer = call_gemini(prompt)
 
         # 결과를 파일로 저장
-        with open("result.txt", "w", encoding="utf-8") as f:
-            f.write(answer)
+        print(answer)
 
         print("결과가 'result.txt' 파일에 저장되었습니다.")
     except Exception as e:
