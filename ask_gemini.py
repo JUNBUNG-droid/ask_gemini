@@ -17,7 +17,9 @@ def call_gemini(prompt: str):
     return full_text
 
 if __name__ == "__main__":
-    # (여기에 원하는 질문을 하드코딩하거나, 파일·환경변수에서 읽어오세요)
     prompt = "오늘 서울 날씨 어때?"
     answer = call_gemini(prompt)
-    print(answer)
+
+    # 결과를 파일로 저장
+    with open("result.txt", "w", encoding="utf-8") as f:
+        f.write(answer)
