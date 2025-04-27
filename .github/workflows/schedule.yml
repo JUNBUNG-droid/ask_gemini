@@ -3,7 +3,7 @@ name: Run ask_gemini.py every hour
 on:
   schedule:
     - cron: '0 * * * *'  # 매시간 정각마다 실행
-  workflow_dispatch:      # 수동으로 실행도 가능
+  workflow_dispatch:      # 수동으로도 실행 가능
 
 jobs:
   run:
@@ -29,20 +29,23 @@ jobs:
         run: |
           python ask_gemini.py
 
-      - name: Get current branch name
-        id: vars
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-
-      - name: Commit and push result.txt
-        env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+      - name: Ensure git is initialized and commit result.txt
         run: |
+          # Git 초기화 및 사용자 설정
           git config --global user.email "rimblee2000@gmail.com"
           git config --global user.name "JUNBUNG-droid"
+
+          # result.txt 파일이 존재하는지 확인
           if [ -f result.txt ]; then
             git add result.txt
-            git commit -m "Update result.txt"
-            git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ env.BRANCH_NAME }}
+            git commit -m "Update result.txt" || echo "Nothing to commit"
+
+            # git remote URL을 토큰 기반 URL로 교체
+            git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git
+
+            # push
+            git push origin HEAD:${{ github.ref }}
           else
             echo "result.txt 파일이 존재하지 않습니다."
           fi
+
