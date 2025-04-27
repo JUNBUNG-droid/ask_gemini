@@ -2,6 +2,7 @@ import threading, time, os
 import google.generativeai as genai
 import requests
 import base64
+import json
 
 # 환경 변수에서 API 키 및 GitHub 토큰을 가져옵니다.
 API_KEY = os.getenv("API_KEY")  # Google Gemini API 키
@@ -31,6 +32,58 @@ def get_github_file():
     else:
         raise Exception(f"Failed to fetch file: {response.status_code}")
 
+# GitHub에서 data 폴더의 파일 목록을 가져오는 함수
+def get_files_from_data_folder():
+    GITHUB_API_URL = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/data"
+    headers = {
+    "Authorization": f"Bearer {GITHUB_TOKEN}",
+    "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.get(GITHUB_API_URL, headers=headers)
+
+    if response.status_code == 200:
+        file_list = response.json()
+        return file_list  # data 폴더 내 파일 목록 반환
+    else:
+        raise Exception(f"Failed to fetch file list: {response.status_code}")
+
+# 각 파일에서 user_id 추출하는 함수
+def extract_user_id_from_files():
+    file_list = get_files_from_data_folder()
+    user_ids = []
+
+    for file in file_list:
+        file_path = file['path']
+        if file_path.endswith('.json'):  # JSON 파일만 처리
+            user_id = extract_user_id_from_file(file_path)
+            if user_id:
+                user_ids.append(user_id)
+
+    return user_ids
+
+# 개별 파일에서 user_id 추출하는 함수
+def extract_user_id_from_file(file_path):
+    # GitHub에서 파일 내용 가져오기
+    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{file_path}"
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        file_data = response.json()
+        file_content = file_data['content']
+        decoded_content = base64.b64decode(file_content).decode('utf-8')
+
+        # JSON 데이터 파싱하여 user_id 추출
+        try:
+            json_data = json.loads(decoded_content)  # JSON으로 변환
+            user_id = json_data.get("user_id")  # "user_id"를 추출
+            return user_id
+        except json.JSONDecodeError:
+            print(f"파일 {file_path} 내용이 유효한 JSON 형식이 아닙니다.")
+            return None
+    else:
+        print(f"파일 {file_path}를 가져오는 데 실패했습니다. 상태 코드: {response.status_code}")
+        return None
+
 # Gemini API 호출 함수
 def call_gemini(prompt: str):
     genai.configure(api_key=API_KEY)
@@ -46,6 +99,13 @@ def call_gemini(prompt: str):
 
 if __name__ == "__main__":
     try:
+        # data 폴더에서 모든 파일의 user_id 추출
+        user_ids = extract_user_id_from_files()
+        
+        if user_ids:
+            print("추출된 user_id 목록:", user_ids)
+        else:
+            print("user_id를 추출할 수 없습니다.")
         # GitHub에서 데이터를 읽어옴
         github_data = get_github_file()
 
