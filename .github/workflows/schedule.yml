@@ -34,4 +34,4 @@ jobs:
           git config --global user.name "JUNBUNG-droid"
           git add result.txt
           git commit -m "Update result.txt"
-          git push
+          git push https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
