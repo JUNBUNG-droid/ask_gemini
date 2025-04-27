@@ -9,7 +9,7 @@ GITHUB_TOKEN = os.getenv("GIT_TOKEN")  # GitHub Personal Access Token
 USER_ID = os.getenv("USER_ID", "anonymous")  # 앱에서 넘겨준 UUID 또는 기본값 'anonymous'
 REPO_OWNER = "JUNBUNG-droid"
 REPO_NAME = "ask_gemini"
-FILE_PATH = "data/diet_summary.json"
+FILE_PATH = f"data/diet_summary_{USER_ID}.json"
 
 # GitHub에서 파일을 가져오는 함수
 def get_github_file():
