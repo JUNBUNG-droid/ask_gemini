@@ -17,7 +17,7 @@ def call_gemini(prompt: str):
     return full_text
 
 if __name__ == "__main__":
-    here = os.path.dirname(os.path.abspath(__file__))
-    # 레포 루트가 scripts/ask_gemini.py 아래에 있다고 가정하면
-    repo_root = os.path.abspath(os.path.join(here, os.pardir))
-    print("Repo root is:", repo_root)
+    # (여기에 원하는 질문을 하드코딩하거나, 파일·환경변수에서 읽어오세요)
+    prompt = "오늘 서울 날씨 어때?"
+    answer = call_gemini(prompt)
+    print(answer)
