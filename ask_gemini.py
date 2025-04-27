@@ -45,9 +45,27 @@ def get_files_from_data_folder():
 
     if response.status_code == 200:
         file_list = response.json()
+        print(file_list)
         return file_list  # data 폴더 내 파일 목록 반환
     else:
         raise Exception(f"Failed to fetch file list: {response.status_code}")
+
+# GitHub에서 파일을 가져오는 함수
+def get_file_content(file_path):
+    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{file_path}"
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        file_data = response.json()
+        file_content = file_data['content']
+        decoded_content = base64.b64decode(file_content).decode('utf-8')
+        return decoded_content
+    else:
+        raise Exception(f"Failed to fetch file: {response.status_code}")
 
 # 각 파일에서 user_id 추출하는 함수
 def extract_user_id_from_file(file_path):
