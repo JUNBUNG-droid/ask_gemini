@@ -15,7 +15,7 @@ def get_github_file():
     # GitHub API URL 생성
     url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{FILE_PATH}"
     headers = {
-        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Authorization": f"Bearer {GIT_TOKEN}",
         "Accept": "application/vnd.github.v3+json"
     }
 
