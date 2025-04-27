@@ -32,13 +32,15 @@ def get_github_file():
     else:
         raise Exception(f"Failed to fetch file: {response.status_code}")
 
-# GitHub에서 data 폴더의 파일 목록을 가져오는 함수
-def get_files_from_data_folder():
-    GITHUB_API_URL = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/data"
-    headers = {
+# GitHub API URL
+GITHUB_API_URL = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/data"
+headers = {
     "Authorization": f"Bearer {GITHUB_TOKEN}",
     "Accept": "application/vnd.github.v3+json"
-    }
+}
+
+# GitHub에서 data 폴더의 파일 목록을 가져오는 함수
+def get_files_from_data_folder():
     response = requests.get(GITHUB_API_URL, headers=headers)
 
     if response.status_code == 200:
@@ -60,29 +62,6 @@ def extract_user_id_from_files():
                 user_ids.append(user_id)
 
     return user_ids
-
-# 개별 파일에서 user_id 추출하는 함수
-def extract_user_id_from_file(file_path):
-    # GitHub에서 파일 내용 가져오기
-    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{file_path}"
-    response = requests.get(url, headers=headers)
-
-    if response.status_code == 200:
-        file_data = response.json()
-        file_content = file_data['content']
-        decoded_content = base64.b64decode(file_content).decode('utf-8')
-
-        # JSON 데이터 파싱하여 user_id 추출
-        try:
-            json_data = json.loads(decoded_content)  # JSON으로 변환
-            user_id = json_data.get("user_id")  # "user_id"를 추출
-            return user_id
-        except json.JSONDecodeError:
-            print(f"파일 {file_path} 내용이 유효한 JSON 형식이 아닙니다.")
-            return None
-    else:
-        print(f"파일 {file_path}를 가져오는 데 실패했습니다. 상태 코드: {response.status_code}")
-        return None
 
 # Gemini API 호출 함수
 def call_gemini(prompt: str):
