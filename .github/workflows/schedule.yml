@@ -1,0 +1,29 @@
+name: Run ask_gemini every day
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # 한국 시간 자정마다 실행 (UTC 기준 15시)
+  workflow_dispatch:      # 필요하면 수동 실행도 가능하게
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || echo "no requirements.txt"
+
+      - name: Run ask_gemini.py
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          python ask_gemini.py
