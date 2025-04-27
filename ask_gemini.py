@@ -44,8 +44,8 @@ def call_gemini(prompt: str):
     return full_text
 
 if __name__ == "__main__":
-    # GitHub에서 데이터를 읽어옴
     try:
+        # GitHub에서 데이터를 읽어옴
         github_data = get_github_file()
 
         # 데이터를 프롬프트에 삽입
@@ -55,8 +55,10 @@ if __name__ == "__main__":
         answer = call_gemini(prompt)
 
         # 결과를 파일로 저장
-        print(answer)
+        with open("result.txt", "w", encoding="utf-8") as f:
+            f.write(answer)
 
         print("결과가 'result.txt' 파일에 저장되었습니다.")
+
     except Exception as e:
         print(f"에러 발생: {e}")
