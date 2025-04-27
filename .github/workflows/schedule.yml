@@ -39,7 +39,7 @@ jobs:
           if [ -f result.txt ]; then
             git add result.txt
             git commit -m "Update result.txt" || echo "No changes to commit"
-            git push https://x-access-token:${GIT_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+            git push https://x-access-token:${GIT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${BRANCH_NAME}
           else
             echo "result.txt 파일이 존재하지 않습니다."
           fi
