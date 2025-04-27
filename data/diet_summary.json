@@ -1,0 +1,33 @@
+{
+    "date": "2025-04-27 22:22:18",
+    "user_info": {
+        "gender": "male",
+        "age": 24,
+        "height": 175.0,
+        "weight": 77.0,
+        "targetWeight": 66.0,
+        "waistCircumference": 80.0,
+        "activityLevel": "high"
+    },
+    "today_nutrients": {
+        "칼로리": 479.0,
+        "탄수화물": 33.0,
+        "단백질": 21.0,
+        "지방": 25.5
+    },
+    "recommended": {
+        "BMR": 1748.8,
+        "TDEE": 3016.6,
+        "mode": "감량",
+        "recommended_calories": 2516.6,
+        "carbs_g": 314.6,
+        "protein_g": 125.8,
+        "fat_g": 83.9
+    },
+    "analysis": {
+        "calorie_ratio": 19.0,
+        "protein_ratio": 16.7,
+        "carbs_ratio": 10.5,
+        "fat_ratio": 30.4
+    }
+}
