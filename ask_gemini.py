@@ -77,19 +77,17 @@ def call_gemini(instruction: str):
     full_text = ""
     
     # 시스템 프롬프트와 사용자 입력을 포함한 요청 페이로드 구성
-    payload = {
-        "contents": [
-            {
-                "parts": [{"text": "당신은 친절하고 정중한 한국어 비서입니다. 모든 답변을 공손하고 자연스럽게 해주세요."}]
-            },
-            {
-                "parts": [{"text": instruction}]  # 사용자의 입력
-            }
-        ]
-    }
+    contents = [
+        {
+            "parts": [{"text": "당신은 친절하고 정중한 한국어 비서입니다. 모든 답변을 공손하고 자연스럽게 해주세요."}]
+        },
+        {
+            "parts": [{"text": instruction}]
+        }
+    ]
     
     # 페이로드를 사용하여 API 호출
-    for chunk in model.generate_content(payload, stream=True):
+    for chunk in model.generate_content(contents, stream=True):
         if hasattr(chunk, 'text') and chunk.text:
             full_text += chunk.text
     
