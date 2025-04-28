@@ -79,9 +79,11 @@ def call_gemini(instruction: str):
     # 시스템 프롬프트와 사용자 입력을 포함한 요청 페이로드 구성
     contents = [
         {
+            "role": "user",
             "parts": [{"text": "당신은 친절하고 정중한 한국어 비서입니다. 모든 답변을 공손하고 자연스럽게 해주세요."}]
         },
         {
+            "role": "user",
             "parts": [{"text": instruction}]
         }
     ]
