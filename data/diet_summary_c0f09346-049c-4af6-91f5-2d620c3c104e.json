@@ -1,0 +1,36 @@
+{
+    "user_id": "c0f09346-049c-4af6-91f5-2d620c3c104e",
+    "date": "2025-04-29 00:54:50",
+    "user_info": {
+        "gender": "male",
+        "age": 24,
+        "height": 175.0,
+        "weight": 75.0,
+        "targetWeight": 68.0,
+        "waistCircumference": 85.0,
+        "activityLevel": "very_high"
+    },
+    "today_nutrients": {
+        "칼로리": 13.0,
+        "탄수화물": 1.0,
+        "단백질": 1.5,
+        "지방": 0.5
+    },
+    "recommended": {
+        "BMR": 1728.8,
+        "TDEE": 3284.6,
+        "mode": "감량",
+        "recommended_calories": 2784.6,
+        "carbs_g": 348.1,
+        "protein_g": 139.2,
+        "fat_g": 92.8
+    },
+    "today_diet": [
+        {
+            "date": "2025-04-29",
+            "foods": [
+                "콩나물국 (절반 남김)"
+            ]
+        }
+    ]
+}
