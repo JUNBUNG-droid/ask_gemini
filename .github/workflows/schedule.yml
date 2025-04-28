@@ -2,12 +2,12 @@ name: Run ask_gemini.py every hour
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 매시간 정각마다 실행
-  workflow_dispatch:      # 수동으로도 실행 가능
+    - cron: '0 * * * *'      # 매시간 정각마다 실행
+  workflow_dispatch:        # 수동 실행도 가능
 
 permissions:
-  contents: write  # 저장소 내용 수정 권한 설정
-  actions: read    # 액션 수정 권한 설정
+  contents: write           # 저장소 내용 수정 권한
+  actions: read             # 액션 수정 권한
 
 jobs:
   run:
@@ -33,23 +33,25 @@ jobs:
         run: |
           python ask_gemini.py
 
-      - name: Ensure git is initialized and commit result.txt
+      - name: Commit generated .txt files
         run: |
-          # Git 초기화 및 사용자 설정
+          # Git 사용자 설정
           git config --global user.email "rimblee2000@gmail.com"
           git config --global user.name "JUNBUNG-droid"
 
-          # result.txt 파일이 존재하는지 확인
-          if [ -f result.txt ]; then
-            git add result.txt
-            git commit -m "Update result.txt" || echo "Nothing to commit"
+          # 워크스페이스 루트로 이동 (optional)
+          cd $GITHUB_WORKSPACE
 
-            # git remote URL을 토큰 기반 URL로 교체
-            git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git
+          # 모든 .txt 파일 스테이징
+          git add *.txt
 
-            # push
-            git push origin HEAD:${{ github.ref }}
-          else
-            echo "result.txt 파일이 존재하지 않습니다."
-          fi
+          # 커밋 (변경 없으면 넘어감)
+          git commit -m "Update feedback files" || echo "Nothing to commit"
+
+          # 토큰 기반 원격 URL 세팅
+          git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # 변경된 브랜치로 푸시
+          git push origin HEAD:${{ github.ref#refs/heads/ }}  
+
 
