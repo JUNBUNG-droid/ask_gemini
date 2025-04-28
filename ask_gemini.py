@@ -71,16 +71,28 @@ def extract_user_id_from_files():
     return user_ids
 
 # Gemini API 호출 함수
-def call_gemini(prompt: str):
+def call_gemini(instruction: str):
     genai.configure(api_key=API_KEY)
     model = genai.GenerativeModel('gemini-2.5-pro-exp-03-25')
     full_text = ""
-
-    # Gemini API를 스트리밍 방식으로 호출
-    for chunk in model.generate_content(prompt, stream=True):
+    
+    # 시스템 프롬프트와 사용자 입력을 포함한 요청 페이로드 구성
+    payload = {
+        "contents": [
+            {
+                "parts": [{"text": "당신은 친절하고 정중한 한국어 비서입니다. 모든 답변을 공손하고 자연스럽게 해주세요."}]
+            },
+            {
+                "parts": [{"text": instruction}]  # 사용자의 입력
+            }
+        ]
+    }
+    
+    # 페이로드를 사용하여 API 호출
+    for chunk in model.generate_content(payload, stream=True):
         if hasattr(chunk, 'text') and chunk.text:
             full_text += chunk.text
-
+    
     return full_text
 
 if __name__ == "__main__":
