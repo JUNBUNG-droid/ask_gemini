@@ -109,6 +109,7 @@ if __name__ == "__main__":
             # 2-3) Gemini API 호출
             try:
                 answer = call_gemini(prompt)
+                print(answer)
             except Exception as e:
                 print(f"{uid} Gemini 호출 실패: {e}")
                 continue
