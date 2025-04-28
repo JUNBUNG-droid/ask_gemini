@@ -23,7 +23,6 @@ def get_files_from_data_folder():
 
     if response.status_code == 200:
         file_list = response.json()
-        print(file_list)
         return file_list  # data 폴더 내 파일 목록 반환
     else:
         raise Exception(f"Failed to fetch file list: {response.status_code}")
@@ -99,6 +98,7 @@ if __name__ == "__main__":
     try:
         # 1) data 폴더에서 모든 파일의 user_id 추출
         user_ids = extract_user_id_from_files()
+        print(user_ids)
         if not user_ids:
             print("user_id를 추출할 수 없습니다.")
             exit(1)
