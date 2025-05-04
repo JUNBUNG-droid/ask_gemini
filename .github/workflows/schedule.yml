@@ -1,4 +1,4 @@
-name: Run ask_gemini.py every hour
+name: Run ask_gemini.py every 11pm
 
 on:
   schedule:
