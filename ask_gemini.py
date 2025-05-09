@@ -75,11 +75,42 @@ def call_gemini(instruction: str):
     model = genai.GenerativeModel('gemini-2.5-pro-exp-03-25')
     full_text = ""
     
-    # 시스템 프롬프트와 사용자 입력을 포함한 요청 페이로드 구성
+    # 프롬프트 템플릿 설정
+    template = """
+    *** (해당 날짜) 식단 데이터 분석 및 피드백
+        ex) 4월 7일 식단 데이터 분석 및 피드백
+    
+    ***1. 개인 정보
+    - 성별: [남/여]
+    - 나이: [숫자]세
+    - 신체 정보:
+      * 키: [숫자]cm
+      * 체중: [숫자]kg
+      * 허리둘레: [숫자]cm
+    - 활동 수준: [매우 적음/적음/보통/많음/매우 많음] 
+    - 건강 목표: [체중 감량/체중 유지/체중 증가]
+    
+    ***2. 식단 기록 분석
+   - 날짜에 해당하는 식단 칼로리 섭취량과 TDEE 대비 초과/부족 여부  
+   - 자주 섭취하는 음식 목록과 각 음식의 혈당 부하 지수(GL) 분류  
+   - 각 음식군의 특징과 건강에 미치는 영향 (예: 고혈당 부하 음식, 가공식품의 특성, 채소 섭취 여부)
+
+    ***3. 종합 피드백 및 권장 사항
+   - 현재 식단의 전반적인 경향과 문제점 요약  
+   - 위험성 인지 및 목표 설정 (체중 감량, 혈당 관리 등)  
+   - 단계별 권장 사항: 식단 조절, 고혈당 부하 음식 제한, 채소 섭취 증가, 규칙적인 식사 습관, 신체 활동 증가, 수분 섭취, 정기적인 전문가 상담 등
+
+    ***4. 요약
+   - 전체 분석 결과를 간략하게 정리하고, 시급한 개선 사항 및 장기적인 건강 관리 방안을 제시
+    
+    *** 요청 사항
+    각 섹션은 제목과 소제목을 명확히 하여, 내 정보와 식단을 기반으로 읽는 사람이 쉽게 이해할 수 있도록 구성해 주세요. 숫자 및 계산 과정, 데이터 기반 결론을 명확히 제시해 주시고, 전문적이고 체계적인 언어로 작성해 주세요.
+    
+    # 요청 페이로드 구성
     contents = [
         {
             "role": "user",
-            "parts": [{"text": "당신은 친절하고 정중한 한국어 비서입니다. 모든 답변을 공손하고 자연스럽게 해주세요."}]
+            "parts": [{"text": template}]
         },
         {
             "role": "user",
@@ -88,11 +119,13 @@ def call_gemini(instruction: str):
     ]
     
     # 페이로드를 사용하여 API 호출
-    for chunk in model.generate_content(contents, stream=True):
-        if hasattr(chunk, 'text') and chunk.text:
-            full_text += chunk.text
-    
-    return full_text
+    try:
+        for chunk in model.generate_content(contents, stream=True):
+            if hasattr(chunk, 'text') and chunk.text:
+                full_text += chunk.text
+        return full_text
+    except Exception as e:
+        return f"API 호출 오류: {str(e)}"
 
 if __name__ == "__main__":
     try:
