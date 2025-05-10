@@ -1,0 +1,34 @@
+{
+    "user_id": "92035861-af54-40d3-ab72-3468ab1f67b0",
+    "date": "2025-05-10 16:07:02",
+    "user_info": {
+        "gender": "male",
+        "age": 0,
+        "height": 0.0,
+        "weight": 0.0,
+        "targetWeight": 0.0,
+        "waistCircumference": 0.0,
+        "activityLevel": "normal"
+    },
+    "today_nutrients": {
+        "칼로리": 0,
+        "탄수화물": 0,
+        "단백질": 0,
+        "지방": 0
+    },
+    "recommended": {
+        "BMR": 5.0,
+        "TDEE": 7.8,
+        "mode": "유지",
+        "recommended_calories": 7.8,
+        "carbs_g": 1.0,
+        "protein_g": 0.4,
+        "fat_g": 0.3
+    },
+    "today_diet": [
+        {
+            "date": "2025-05-10",
+            "foods": []
+        }
+    ]
+}
