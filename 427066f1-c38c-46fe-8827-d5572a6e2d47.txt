@@ -1,54 +1,60 @@
-2025년 5월 12일 식단 데이터 분석 및 피드백
-
-1. 개인 정보
-    성별: 남
-    나이: 23세
-    신체 정보:
-      키: 173.0cm
-      체중: 100.0kg (체질량 지수 BMI: 33.41 kg/m², 비만)
-      허리둘레: 120.0cm (복부 비만)
-    활동 수준: 보통
-    건강 목표: 체중 감량 (현재 체중 100.0kg, 목표 체중 70.0kg)
-
-2. 식단 기록 분석
-   2025년 5월 12일 식단 칼로리 섭취량과 총 에너지 소비량(TDEE) 대비 초과/부족 여부
-    총 섭취 칼로리: 1540.0 kcal
-    총 에너지 소비량(TDEE): 3055.4 kcal
-    권장 섭취 칼로리(체중 감량 목표): 2555.4 kcal (TDEE - 500 kcal)
-    분석: 해당 날짜의 섭취 칼로리(1540.0 kcal)는 TDEE(3055.4 kcal) 대비 1515.4 kcal 부족하며, 체중 감량 목표를 위한 권장 섭취 칼로리(2555.4 kcal)에 비해서도 1015.4 kcal 부족한 상태입니다. 이는 단기적으로 체중 감소를 유도할 수 있으나, 장기적으로 지속될 경우 영양 불균형, 기초대사량 저하, 근손실 등의 부작용을 초래할 수 있습니다.
-
-   자주 섭취하는 음식 목록과 각 음식의 혈당 부하 지수(GL) 분류
-    섭취 음식: 찜닭 (4회 반복 섭취)
-    찜닭의 혈당 부하 지수(GL) 추정: 중~고 GL (Medium to High Glycemic Load)
-      찜닭은 주재료인 닭고기 외에 당면, 감자, 각종 채소 및 설탕, 물엿 등이 포함된 양념으로 조리됩니다. 특히 당면(주로 고구마 전분), 감자, 그리고 양념에 포함된 단순당은 혈당 지수(GI)가 높아 전체적인 혈당 부하 지수(GL)를 높이는 주요 요인입니다. 1회 제공량 및 구성에 따라 차이가 크지만, 일반적인 외식 찜닭은 중~고 GL 식품으로 분류될 가능성이 높습니다.
-
-   각 음식군의 특징과 건강에 미치는 영향
-    단일 음식(찜닭) 위주의 식단: 찜닭은 단백질(닭고기)과 일부 탄수화물(당면, 감자), 채소를 포함하고 있으나, 하루 식단을 찜닭만으로 구성한 것은 심각한 영양 불균형을 야기합니다. 필수 지방산, 다양한 비타민, 미네랄, 식이섬유 등의 섭취가 절대적으로 부족하게 됩니다.
-    고혈당 부하 음식의 잠재적 영향: 찜닭에 포함된 당면, 감자, 단 양념은 섭취 후 혈당을 빠르게 상승시킬 수 있습니다. 이러한 혈당 스파이크가 반복되면 인슐린 저항성을 유발하거나 악화시켜 제2형 당뇨병 발병 위험을 높이며, 체내 염증 반응을 촉진하고 지방 축적을 용이하게 할 수 있습니다.
-    가공 및 외식 식품의 특성: 찜닭과 같은 외식 메뉴는 맛을 위해 비교적 많은 양의 나트륨과 당류, 때로는 포화지방이나 트랜스지방이 포함될 수 있습니다. 과도한 나트륨 섭취는 혈압 상승의 위험 요인이며, 과다한 당류 섭취는 체중 증가 및 대사 질환과 연관됩니다.
-    채소 섭취 부족: 찜닭에 일부 채소가 포함되더라도, 권장되는 다양한 종류와 충분한 양의 채소 섭취에는 미치지 못할 가능성이 큽니다. 채소 섭취 부족은 식이섬유, 비타민, 미네랄 부족으로 이어져 장 건강 악화, 면역력 저하 등을 유발할 수 있습니다.
-
-3. 종합 피드백 및 권장 사항
-   현재 식단의 전반적인 경향과 문제점 요약
-    해당일 식단은 총 섭취 칼로리가 권장량 및 TDEE에 비해 현저히 낮아 단기적인 체중 감량 효과는 있을 수 있으나, 극심한 영양 불균형 상태입니다. 단일 음식(찜닭) 반복 섭취로 인해 필수 영양소 결핍 위험이 매우 높으며, 해당 음식의 특성상 혈당 부하 지수가 높을 가능성이 커 혈당 관리에 부정적입니다. 탄수화물 섭취량(80.0g)은 권장량(319.4g)에 비해 극히 낮으며, 단백질(100.0g, 권장 127.8g)과 지방(60.0g, 권장 85.2g) 역시 부족합니다. 이는 에너지 부족, 집중력 저하, 근손실 등을 유발할 수 있습니다.
-
-   위험성 인지 및 목표 설정
-    위험성: 현재 BMI 33.4 kg/m² (비만), 허리둘레 120.0cm (복부 비만)는 심혈관계 질환, 제2형 당뇨병, 고혈압, 고지혈증 등 대사증후군의 발병 위험이 매우 높은 상태임을 시사합니다. 현재의 불균형하고 단조로운 식단은 이러한 건강 위험을 더욱 가중시킬 수 있습니다.
-    목표 설정: 건강한 방식으로 목표 체중(70.0kg)을 달성하고, 균형 잡힌 영양 섭취를 통해 대사 질환 위험을 낮추며, 장기적으로 건강한 식습관을 확립합니다.
-
-   단계별 권장 사항
-    식단 조절:
-      다양한 식품군 섭취: 매 끼니 곡류(통곡물 위주), 다양한 단백질 공급원(살코기, 생선, 계란, 두부, 콩류), 충분한 양의 채소(다양한 색깔), 적정량의 과일, 건강한 지방(견과류, 씨앗류, 올리브유 등)을 포함하여 균형 잡힌 식단을 구성해야 합니다.
-      섭취 칼로리 현실화: 현재 섭취 칼로리는 지나치게 낮으므로, 최소 기초대사량(BMR: 1971.2 kcal) 이상으로 점진적으로 늘려나가되, 체중 감량 권장 칼로리(2555.4 kcal) 범위 내에서 영양 밀도가 높은 식품 위주로 섭취합니다.
-    고혈당 부하 음식 제한:
-      찜닭과 같이 당면, 감자, 단 양념이 많은 음식의 섭취 빈도와 양을 줄입니다. 섭취 시 당면, 감자 양을 줄이고 채소 양을 늘리도록 요청하거나 직접 조리 시 설탕 대신 대체 감미료를 사용하거나 양을 줄입니다.
-      정제된 탄수화물(흰쌀, 흰빵, 면, 과자, 음료수 등) 대신 통곡물, 콩류, 채소 등 복합 탄수화물 위주로 섭취합니다.
-    채소 섭취 증가: 매 끼니 최소 2가지 종류 이상의 채소를 충분히(한 끼 약 200g 이상) 섭취하여 식이섬유, 비타민, 미네랄 섭취를 늘립니다.
-    규칙적인 식사 습관: 하루 세 끼를 거르지 않고 규칙적인 시간에 섭취하며, 폭식과 야식을 피합니다. 천천히 씹어 먹는 습관을 들여 포만감을 충분히 느낄 수 있도록 합니다.
-    신체 활동 증가: 현재 활동 수준(보통)을 유지 또는 점진적으로 늘려, 주 3~5회 유산소 운동(예: 빠르게 걷기, 조깅, 수영, 자전거 타기 등)과 주 2~3회 근력 운동을 병행하여 칼로리 소모를 늘리고 근육량을 유지 및 증가시킵니다.
-    충분한 수분 섭취: 하루 2L 이상의 물을 마셔 신진대사를 원활하게 하고 노폐물 배출을 돕습니다.
-    정기적인 전문가 상담: 의사 또는 임상영양사와 상담하여 개인의 건강 상태와 목표에 맞는 체계적인 식단 계획 및 운동 계획을 수립하고, 정기적인 점검을 받는 것이 매우 중요합니다.
-
-4. 요약
-   2025년 5월 12일 식단은 찜닭 단일 메뉴 반복 섭취로 인해 총 1540.0 kcal를 섭취하였으며, 이는 체중 감량 목표 권장 칼로리(2555.4 kcal) 및 TDEE(3055.4 kcal)에 크게 미달하는 수준입니다. 극심한 영양 불균형과 고혈당 부하 가능성이 높은 식단으로, 현재 BMI 33.4 kg/m²의 비만 및 허리둘레 120.0cm의 복부 비만 상태를 고려할 때 건강에 매우 부정적인 영향을 미칠 수 있습니다.
-   시급한 개선 사항으로는 다양한 식품군을 활용한 균형 잡힌 식단 구성, 적정 수준으로의 칼로리 섭취 상향 조정(영양가 높은 식품 위주), 고혈당 부하 음식 섭취 빈도 및 양 조절, 그리고 채소 섭취량 대폭 증가입니다. 장기적으로는 규칙적인 신체 활동을 생활화하고, 건강한 식습관을 꾸준히 유지하며, 전문가의 도움을 받아 정기적으로 건강 상태를 모니터링하여 건강 목표를 달성하고 유지하는 것이 필수적입니다.
+API 호출 오류: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-pro-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-pro-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-pro-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerDay-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-pro-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 36
+}
+]
