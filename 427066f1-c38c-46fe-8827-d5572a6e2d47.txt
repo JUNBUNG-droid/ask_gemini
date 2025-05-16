@@ -55,6 +55,6 @@ violations {
   url: "https://ai.google.dev/gemini-api/docs/rate-limits"
 }
 , retry_delay {
-  seconds: 28
+  seconds: 15
 }
 ]
