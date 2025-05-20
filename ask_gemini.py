@@ -72,7 +72,7 @@ def extract_user_id_from_files():
 # Gemini API 호출 함수
 def call_gemini(instruction: str):
     genai.configure(api_key=API_KEY)
-    model = genai.GenerativeModel('gemini-2.5-pro-exp-03-25')
+    model = genai.GenerativeModel('gemini-2.5-flash-preview-04-17')
     full_text = ""
     
     # 프롬프트 템플릿 설정
