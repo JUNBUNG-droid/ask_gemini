@@ -3,6 +3,7 @@ import google.generativeai as genai
 import requests
 import base64
 import json
+from datetime import datetime
 
 # 환경 변수에서 API 키 및 GitHub 토큰을 가져옵니다.
 API_KEY = os.getenv("API_KEY")  # Google Gemini API 키
@@ -77,7 +78,7 @@ def call_gemini(instruction: str):
     
     # 프롬프트 템플릿 설정
     template = """
-    (해당 날짜) 식단 데이터 분석 및 피드백
+    (오늘 날짜) 식단 데이터 분석 및 피드백
         ex) 4월 7일 식단 데이터 분석 및 피드백
     
     1. 개인 정보
@@ -161,16 +162,19 @@ if __name__ == "__main__":
                 print(f"{uid} Gemini 호출 실패: {e}")
                 continue
 
-            # 2-4) 결과를 파일로 저장
-            result_file = f"{uid}.txt"
+            # 2-4) 결과를 파일로 저장 (날짜 포함)
+            today = datetime.now().strftime('%Y-%m-%d')
+            result_file = f"feedback_{today}_{uid}.txt"
             try:
-                with open(result_file, "w", encoding="utf-8") as f:
+                # feedback 폴더가 없으면 생성
+                if not os.path.exists('feedback'):
+                    os.makedirs('feedback')
+                    
+                with open(f"feedback/{result_file}", "w", encoding="utf-8") as f:
                     f.write(answer)
                 print(f"{uid} 피드백 저장 완료: {result_file}")
             except Exception as e:
                 print(f"{uid} 파일 저장 실패: {e}")
-
-            # (선택) 여기에 upload_to_github(result_file, f"feedback/{result_file}") 호출 가능
 
             # API Rate-limit 방지용 짧은 대기
             time.sleep(1)
