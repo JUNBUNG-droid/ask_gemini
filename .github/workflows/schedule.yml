@@ -38,14 +38,15 @@ jobs:
           git config --global user.email "rimblee2000@gmail.com"
           git config --global user.name "JUNBUNG-droid"
       
-          # 변경된 .txt 파일 모두 스테이징
-          git add *.txt
+          # 변경된 파일 모두 스테이징 (feedback 폴더 포함)
+          git add feedback/
       
           # 변경사항이 있으면 커밋
-          git commit -m "Update feedback files" || echo "Nothing to commit"
+          git commit -m "Add feedback files" || echo "No changes to commit"
       
           # 토큰을 이용한 푸시
           git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin HEAD:${{ github.ref }}
+
 
 
