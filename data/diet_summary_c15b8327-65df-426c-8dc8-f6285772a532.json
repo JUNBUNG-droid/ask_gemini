@@ -1,0 +1,39 @@
+{
+    "user_id": "c15b8327-65df-426c-8dc8-f6285772a532",
+    "date": "2025-05-30 21:11:36",
+    "user_info": {
+        "gender": "male",
+        "age": 0,
+        "height": 0.0,
+        "weight": 0.0,
+        "targetWeight": 0.0,
+        "waistCircumference": 0.0,
+        "activityLevel": "normal"
+    },
+    "today_nutrients": {
+        "칼로리": 990.0,
+        "탄수화물": 42.0,
+        "단백질": 33.0,
+        "지방": 31.5
+    },
+    "recommended": {
+        "BMR": 5.0,
+        "TDEE": 7.8,
+        "mode": "유지",
+        "recommended_calories": 7.8,
+        "carbs_g": 1.0,
+        "protein_g": 0.4,
+        "fat_g": 0.3
+    },
+    "today_diet": [
+        {
+            "date": "2025-05-30",
+            "foods": [
+                "배추김치 (전부 섭취)",
+                "제육볶음 (전부 섭취)",
+                "호박죽 (전부 섭취)",
+                "소고기무국 (전부 섭취)"
+            ]
+        }
+    ]
+}
