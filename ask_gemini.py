@@ -76,9 +76,29 @@ def call_gemini(instruction: str):
     model = genai.GenerativeModel('gemini-2.5-flash-preview-04-17')
     full_text = ""
     
+    # 안전 설정 - 모든 필터 비활성화
+    safety_settings = [
+        {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_HATE_SPEECH", 
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE"
+        }
+    ]
+    
     # 프롬프트 템플릿 설정
     template = """
-    (오늘 날짜) 식단 데이터 분석 및 피드백
+    (해당 날짜) 식단 데이터 분석 및 피드백
         ex) 4월 7일 식단 데이터 분석 및 피드백
     
     1. 개인 정보
@@ -121,9 +141,9 @@ def call_gemini(instruction: str):
         }
     ]
     
-    # 페이로드를 사용하여 API 호출
+    # 페이로드를 사용하여 API 호출 (안전 설정 포함)
     try:
-        for chunk in model.generate_content(contents, stream=True):
+        for chunk in model.generate_content(contents, stream=True, safety_settings=safety_settings):
             if hasattr(chunk, 'text') and chunk.text:
                 full_text += chunk.text
         return full_text
@@ -181,3 +201,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"전체 처리 중 에러 발생: {e}")
+
