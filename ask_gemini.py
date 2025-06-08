@@ -70,7 +70,47 @@ def extract_user_id_from_files():
 
     return user_ids
 
-
+# 식단 데이터의 날짜가 오늘인지 확인하는 함수
+def is_today_data(summary_data):
+    try:
+        data = json.loads(summary_data)
+        # JSON에서 날짜 정보 추출 (여러 가능한 키 확인)
+        date_str = data.get("date") or data.get("날짜") or data.get("analysis_date")
+        
+        if not date_str:
+            return False
+            
+        # 날짜 문자열을 datetime 객체로 변환
+        if isinstance(date_str, str):
+            # 다양한 날짜 형식 지원 (시간 포함 형식 추가)
+            date_formats = [
+                '%Y-%m-%d %H:%M:%S',  # 2025-05-11 23:10:54
+                '%Y-%m-%d',           # 2025-05-11
+                '%Y/%m/%d',           # 2025/05/11
+                '%m/%d/%Y',           # 05/11/2025
+                '%d/%m/%Y',           # 11/05/2025
+                '%Y-%m-%d %H:%M',     # 2025-05-11 23:10
+            ]
+            
+            file_date = None
+            for fmt in date_formats:
+                try:
+                    file_date = datetime.strptime(date_str, fmt).date()
+                    break
+                except ValueError:
+                    continue
+                    
+            if file_date is None:
+                return False
+        else:
+            return False
+            
+        # 오늘 날짜와 비교
+        today = datetime.now().date()
+        return file_date == today
+        
+    except Exception as e:
+        return False
 
 # Gemini API 호출 함수
 def call_gemini(instruction: str):
@@ -130,7 +170,7 @@ def call_gemini(instruction: str):
     - 모바일에서 읽기 쉽도록 짧은 문단으로 구성
     - 기호는 - 와 : 만 
     - 반드시 프롬프트의 형식대로 작성
-    - 오늘 날짜의 음식 정보가 없으면 "오늘 음식 정보가 없어 분석을 건너뜁니다"라고 안내
+    - 오늘 날짜의 음식 정보가 아닐시 "오늘 음식 정보가 없어 분석을 건너뜁니다"라고 안내
     """
     
     # 요청 페이로드 구성
@@ -180,8 +220,15 @@ if __name__ == "__main__":
                 print(f"{uid} 요약 파일 로딩 실패: {e}")
                 continue
 
-            # 2-2) Gemini 프롬프트 생성
-            prompt = f"내 정보는 {summary_json} 입니다. 이것을 기반으로 현 상태를 평가해주세요"
+            # 2-2) 날짜 확인 및 프롬프트 생성
+            is_today = is_today_data(summary_json)
+            
+            if is_today:
+                prompt = f"내 정보는 {summary_json} 입니다. 이것을 기반으로 현 상태를 평가해주세요"
+                print(f"{uid}: 오늘 데이터 확인됨. 분석 진행...")
+            else:
+                prompt = f"내 정보는 {summary_json} 입니다. 단, 이 데이터는 오늘 날짜가 아닙니다. 오늘 음식 정보가 없어 분석을 건너뜁니다."
+                print(f"{uid}: 오늘 데이터가 아님. 안내 메시지 생성...")
 
             # 2-3) Gemini API 호출
             try:
@@ -213,4 +260,3 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"전체 처리 중 에러 발생: {e}")
-
