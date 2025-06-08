@@ -70,6 +70,8 @@ def extract_user_id_from_files():
 
     return user_ids
 
+
+
 # Gemini API 호출 함수
 def call_gemini(instruction: str):
     genai.configure(api_key=API_KEY)
@@ -128,6 +130,7 @@ def call_gemini(instruction: str):
     - 모바일에서 읽기 쉽도록 짧은 문단으로 구성
     - 기호는 - 와 : 만 
     - 반드시 프롬프트의 형식대로 작성
+    - 오늘 날짜의 음식 정보가 없으면 "오늘 음식 정보가 없어 분석을 건너뜁니다"라고 안내
     """
     
     # 요청 페이로드 구성
@@ -153,9 +156,14 @@ def call_gemini(instruction: str):
 
 if __name__ == "__main__":
     try:
-        # 1) data 폴더에서 모든 파일의 user_id 추출
+        # 오늘 날짜 출력
+        today = datetime.now().strftime('%Y-%m-%d')
+        print(f"오늘 날짜: {today}")
+        print("="*50)
+        
+        # 1) data 폴더에서 모든 파일의 user_id 추출  
         user_ids = extract_user_id_from_files()
-        print(user_ids)
+        print(f"추출된 user_id 목록: {user_ids}")
         if not user_ids:
             print("user_id를 추출할 수 없습니다.")
             exit(1)
@@ -199,6 +207,9 @@ if __name__ == "__main__":
 
             # API Rate-limit 방지용 짧은 대기
             time.sleep(1)
+
+        print(f"\n{'='*50}")
+        print("=== 전체 처리 완료 ===")
 
     except Exception as e:
         print(f"전체 처리 중 에러 발생: {e}")
