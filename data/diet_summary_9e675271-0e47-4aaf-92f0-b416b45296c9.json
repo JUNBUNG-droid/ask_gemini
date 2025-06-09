@@ -1,0 +1,38 @@
+{
+    "user_id": "9e675271-0e47-4aaf-92f0-b416b45296c9",
+    "date": "2025-06-09 20:16:33",
+    "user_info": {
+        "gender": "여",
+        "age": 23,
+        "height": 167.0,
+        "weight": 54.0,
+        "targetWeight": 48.0,
+        "waistCircumference": 32.0,
+        "activityLevel": "low"
+    },
+    "today_nutrients": {
+        "칼로리": 718.0,
+        "탄수화물": 113.0,
+        "단백질": 9.0,
+        "지방": 18.0
+    },
+    "recommended": {
+        "BMR": 1307.8,
+        "TDEE": 1798.2,
+        "mode": "감량",
+        "recommended_calories": 1298.2,
+        "carbs_g": 162.3,
+        "protein_g": 64.9,
+        "fat_g": 43.3
+    },
+    "today_diet": [
+        {
+            "date": "2025-06-09",
+            "foods": [
+                "감자튀김 (전부 섭취)",
+                "백미밥 (전부 섭취)",
+                "배추김치 (전부 섭취)"
+            ]
+        }
+    ]
+}
