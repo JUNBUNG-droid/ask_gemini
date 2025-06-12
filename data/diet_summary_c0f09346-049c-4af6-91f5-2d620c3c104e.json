@@ -1,37 +1,35 @@
 {
     "user_id": "c0f09346-049c-4af6-91f5-2d620c3c104e",
-    "date": "2025-06-11 14:12:22",
+    "date": "2025-06-12 18:08:35",
     "user_info": {
-        "gender": "남",
-        "age": 24,
-        "height": 175.0,
-        "weight": 75.0,
-        "targetWeight": 68.0,
+        "gender": "여",
+        "age": 4,
+        "height": 20.0,
+        "weight": 10.0,
+        "targetWeight": 15.0,
         "waistCircumference": 85.0,
         "activityLevel": "very_high"
     },
     "today_nutrients": {
-        "칼로리": 350.0,
-        "탄수화물": 25.0,
-        "단백질": 14.0,
-        "지방": 18.2
+        "칼로리": 45.9,
+        "탄수화물": 3.7,
+        "단백질": 5.5,
+        "지방": 1.7
     },
     "recommended": {
-        "BMR": 1562.8,
-        "TDEE": 2969.2,
-        "mode": "감량",
-        "recommended_calories": 2469.2,
-        "carbs_g": 308.7,
-        "protein_g": 123.5,
-        "fat_g": 82.3
+        "BMR": 44.0,
+        "TDEE": 83.6,
+        "mode": "증량",
+        "recommended_calories": 583.6,
+        "carbs_g": 73.0,
+        "protein_g": 29.2,
+        "fat_g": 19.5
     },
     "today_diet": [
         {
-            "date": "2025-06-11",
+            "date": "2025-06-12",
             "foods": [
-                "감자조림 (전부 섭취)",
-                "도토리묵 (전부 섭취)",
-                "소세지볶음 (전부 섭취)"
+                "된장국 (전부 섭취)"
             ]
         }
     ]
