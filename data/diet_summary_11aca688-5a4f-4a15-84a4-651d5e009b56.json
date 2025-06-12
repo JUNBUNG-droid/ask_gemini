@@ -1,0 +1,36 @@
+{
+    "user_id": "11aca688-5a4f-4a15-84a4-651d5e009b56",
+    "date": "2025-06-12 19:41:11",
+    "user_info": {
+        "gender": "남",
+        "age": 23,
+        "height": 173.0,
+        "weight": 98.0,
+        "targetWeight": 70.0,
+        "waistCircumference": 113.0,
+        "activityLevel": "normal"
+    },
+    "today_nutrients": {
+        "칼로리": 58.3,
+        "탄수화물": 16.7,
+        "단백질": 1.2,
+        "지방": 0.1
+    },
+    "recommended": {
+        "BMR": 1951.2,
+        "TDEE": 3024.4,
+        "mode": "감량",
+        "recommended_calories": 2524.4,
+        "carbs_g": 315.6,
+        "protein_g": 126.2,
+        "fat_g": 84.1
+    },
+    "today_diet": [
+        {
+            "date": "2025-06-12",
+            "foods": [
+                "백미밥 (전부 섭취)"
+            ]
+        }
+    ]
+}
